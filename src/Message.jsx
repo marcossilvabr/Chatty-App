@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 
 class Message extends Component {
-  constructor(props) {
-    super(props);
-      console.log('now with this', this.props);
-  }
+
   render() {
     return (
       <div>
@@ -17,4 +14,5 @@ class Message extends Component {
     )
   }
 }
+
 export default Message;
