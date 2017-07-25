@@ -11,17 +11,18 @@ class ChatBar extends Component {
     };
   }
 
-  handleChange(e) {
-    if (e.key === 'Enter') {
-      this.state.message = e.target.value;
+  handleChange(event) {
+    if (event.key === 'Enter') {
+      this.state.message = event.target.value;
       if (!this.state.username) {
         this.state.username = 'Anonymous';
       }
       this.props.onSend(this.state.message, this.state.username);
+      event.target.value = '';
     }
   }
-  handleUsername(e) {
-    this.state.username = e.target.value
+  handleUsername(event) {
+    this.state.username = event.target.value
   }
 
 
