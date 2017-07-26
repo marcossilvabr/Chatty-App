@@ -2,15 +2,14 @@ import React, {Component} from 'react';
 import ChatBar from './ChatBar.jsx';
 import MessageList from './MessageList.jsx';
 
-var id = 5;
 class App extends Component {
 
   newMessage (message, username) {
-    const newMessage = {id: id++, username: username, content: message};
+    const newMessage = {username: username, content: message};
     const messages = this.state.messages.concat(newMessage);
 
     let msg = {
-      id: id,
+      //id: id,
       type: "message",
       content: message,
       username: username
@@ -44,16 +43,7 @@ class App extends Component {
 
   }
   componentDidMount() {
-    console.log("componentDidMount <App />");
-    setTimeout(() => {
-      console.log("Simulating incoming message");
-      // Add a new message to the list of messages in the data store
-      const newMessage = {id: 3, username: "Fernanda", content: "Hello there!"};
-      const messages = this.state.messages.concat(newMessage)
-      // Update the state of the app component.
-      // Calling setState will trigger a call to render() in App and all child components.
-      this.setState({messages: messages})
-    }, 3000);
+
     this.ws = new WebSocket('ws://localhost:3001');
     this.ws.onmessage = function (event) {
       console.log(event.data);
