@@ -7,11 +7,16 @@ class App extends Component {
 
   newMessage (message, username) {
     const newMessage = {id: id++, username: username, content: message};
-    console.log('newMessage', newMessage);
-    console.log(message);
-    console.log('messages', this.state);
-    const messages = this.state.messages.concat(newMessage)
-    this.ws.send("testing");
+    const messages = this.state.messages.concat(newMessage);
+
+    let msg = {
+      id: id,
+      type: "message",
+      content: message,
+      username: username
+    };
+
+    this.ws.send(JSON.stringify(msg));
     this.setState({messages: messages})
 
   }
@@ -43,7 +48,7 @@ class App extends Component {
     setTimeout(() => {
       console.log("Simulating incoming message");
       // Add a new message to the list of messages in the data store
-      const newMessage = {id: 3, username: "Michelle", content: "Hello there!"};
+      const newMessage = {id: 3, username: "Fernanda", content: "Hello there!"};
       const messages = this.state.messages.concat(newMessage)
       // Update the state of the app component.
       // Calling setState will trigger a call to render() in App and all child components.
