@@ -15,7 +15,7 @@ No DB involved, this project focus on using ReactJS in order to show changes in 
 ### Usage
 
 Clone the repo to your local machine.
-Install the dependencies and start the server.
+Install the dependencies and start the servers.
 
 (YOU WILL NEED TO RUN 2 SERVERS)
 
@@ -42,7 +42,7 @@ For example, if you copy a file called my_image.png into the build folder you ca
 
 ### Linting
 
-This boilerplate project includes React ESLint configuration.
+This project includes React ESLint configuration.
 
 ```
 npm run lint
