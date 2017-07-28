@@ -34,7 +34,6 @@ wss.broadcast = function broadcast(data) {
 wss.broadcastUserCount = function broadcast() {
   wss.clients.forEach((client) => {
     let color = colors[Math.floor(Math.random()*colors.length)];
-    console.log(color);
     let userCount = {
       type: 'clientCount',
       count: wss.clients.size,
