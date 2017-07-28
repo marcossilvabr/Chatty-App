@@ -6,15 +6,25 @@ h1 {
 }
 
 body {
-  background: white;
-  color: black;
+  background: #F7F7F9;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   margin: 70px 0;
 }
 
 .chatbar {
-  background: tomato;
+  background-color: #FF4787;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: #FF4787 -webkit-gradient(linear, left top, left bottom, from(#FF8247), to(#FF4787)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #FF4787 -moz-linear-gradient(top, #FF8247, #FF4787) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF8247, endColorstr=#FF4787) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF8247, endColorstr=#FF8247)" no-repeat;
+  border-bottom: 1px solid black;
   border-top: 1px solid black;
   bottom: 0;
   display: flex;
@@ -69,7 +79,15 @@ body {
 }
 
 .navbar {
-  background: tomato;
+  background-color: #FF4787;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: #FF4787 -webkit-gradient(linear, left top, left bottom, from(#FF8247), to(#FF4787)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #FF4787 -moz-linear-gradient(top, #FF8247, #FF4787) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF8247, endColorstr=#FF4787) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FF8247, endColorstr=#FF8247)" no-repeat;
   border-bottom: 1px solid black;
   height: 60px;
   left: 0;
@@ -89,4 +107,10 @@ body {
   line-height: 60px;
   padding: 0 10px;
   text-decoration: none;
+}
+
+.usercount {
+  float: right;
+  padding-top: 18px;
+  font-size: 17px;
 }
