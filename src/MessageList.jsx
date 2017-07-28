@@ -9,7 +9,7 @@ class MessageList extends Component {
       <main className="messages">
         {this.props.messages.map((item, index) => {
           if (item.type === 'notification') {
-            return <div className="message system">{item.message}</div>
+            return <div className="message system" key={index}>{item.message}</div>
           } else {
             return (
               <Message
