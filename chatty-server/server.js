@@ -17,19 +17,11 @@ const server = express()
 // Create the WebSockets server
 const wss = new SocketServer({ server });
 
+const colors = ['#FF0000', '#808000', '#FFFF00', '#00FFFF', '#008080', '#FF00FF']
+
 // Set up a callback that will run when a client connects to the server
 // When a client connects they are assigned a socket, represented by
 // the ws parameter in the callback.
-
-wss.on('connection', (ws) => {
-  console.log('Client connected');
-  ws.on('message', function incoming(message) {
-    let toShow = JSON.parse(message);
-    console.log('User', toShow.username, 'said', toShow.content);
-    toShow.id = uuid.v4();
-    wss.broadcast(JSON.stringify(toShow));
-  });
-
 
 wss.broadcast = function broadcast(data) {
   wss.clients.forEach(function each(client) {
@@ -39,6 +31,35 @@ wss.broadcast = function broadcast(data) {
   });
 };
 
+wss.broadcastUserCount = function broadcast() {
+  wss.clients.forEach((client) => {
+    let color = colors[Math.floor(Math.random()*colors.length)];
+    console.log(color);
+    let userCount = {
+      type: 'clientCount',
+      count: wss.clients.size,
+      color: color
+    }
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify(userCount));
+    }
+  })
+}
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  wss.broadcastUserCount();
+
+  ws.on('message', function incoming(message) {
+    let toShow = JSON.parse(message);
+    console.log('User', toShow.username, 'said', toShow.content);
+    toShow.id = uuid.v4();
+    wss.broadcast(JSON.stringify(toShow));
+  });
+
   // Set up a callback for when a client closes the socket. This usually means they closed their browser.
-  ws.on('close', () => console.log('Client disconnected'));
+  ws.on('close', () => {
+    console.log('Client disconnected');
+    wss.broadcastUserCount();
+  });
 });

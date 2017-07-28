@@ -8,12 +8,18 @@ class MessageList extends Component {
     return (
       <main className="messages">
         {this.props.messages.map((item, index) => {
-          return <Message
-            username={item.username}
-            content={item.content}
-            key={index} />
+          if (item.type === 'notification') {
+            return <div className="message system">{item.message}</div>
+          } else {
+            return (
+              <Message
+                username={item.username}
+                content={item.content}
+                messageColor={item.messageColor}
+                key={index} />
+              )
+            }
         })}
-
       </main>
     )
   }

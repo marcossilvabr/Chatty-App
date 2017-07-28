@@ -6,13 +6,17 @@ class Message extends Component {
     return (
       <div>
         <div className="message">
-          <span className="message-username">{this.props.username}</span>
-          <span className="message-content">{this.props.content}</span>
+          <span
+            className="message-username"
+            style={{color: this.props.messageColor}}>
+              {this.props.username}
+          </span>
+          <span
+            className="message-content">{this.props.content}
+          </span>
         </div>
-
       </div>
     )
   }
 }
-
 export default Message;
