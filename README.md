@@ -6,7 +6,10 @@ The client communicates with the server.js using WebSocktes and updates in real-
 
 No DB involved, this project focus on using ReactJS in order to show changes in real-time.
 
+### Screenshot:
 
+
+![chatty-app](/docs/gif.gif?raw=true)
 
 ### Usage
 
