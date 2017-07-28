@@ -1,21 +1,28 @@
-React Boilerplate
+Chatty App
 =====================
 
-A minimal and light dev environment for ReactJS.
+A single-page app built with ReactJS, Webpack, Babel, Node.js and WebSockets.
+The client communicates with the server.js using WebSocktes and updates in real-time.
+
+No DB involved, this project focus on using ReactJS in order to show changes in real-time.
+
+
 
 ### Usage
 
-Clone the boilerplate and create your own git repo.
-
-```
-git clone git@github.com:lighthouse-labs/react-simple-boilerplate.git
-cd react-simple-boilerplate
-git remote rm origin
-git remote add origin [YOUR NEW REPOSITORY]
-# Manually update your package.json file
-```
-
+Clone the repo to your local machine.
 Install the dependencies and start the server.
+
+(YOU WILL NEED TO RUN 2 SERVERS)
+
+1st:
+
+```
+cd to `chatty-server`
+node server.js
+```
+
+2nd:
 
 ```
 npm install
