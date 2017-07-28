@@ -8,6 +8,7 @@ No DB involved, this project focus on using ReactJS in order to show changes in 
 
 ### Screenshot:
 
+!["Screenshot"](https://github.com/marcossilvabr/Chatty-App/blob/master/docs/sc.png)
 
 ![chatty-app](/docs/gif.gif?raw=true)
 
